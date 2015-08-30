@@ -2,15 +2,15 @@
 
 module.exports = function (express, bodyParser) {
   var router = express.Router();
-  var servico = require('../servicos/servicousuario.js');
+  var servico = require('../servicos/servicoempresa.js');
 
   router
     .route('/')
     .post(bodyParser.json({}), function (request, response, next) {
-      var usuario = request.body;
-      servico.gravar(usuario)
+      var empresa = request.body;
+      servico.gravar(empresa)
         .then(function () {
-          response.status(201).json(usuario);
+          response.status(201).json(empresa);
         })
         .catch(function (error) {
           next(error);
@@ -19,8 +19,8 @@ module.exports = function (express, bodyParser) {
     .get(bodyParser.urlencoded({extended: true}), function (request, response, next) {
       var filtro = request.body;
       servico.obter(filtro)
-        .then(function (usuarios) {
-          response.status(200).json(usuarios);
+        .then(function (empresas) {
+          response.status(200).json(empresas);
         })
         .catch(function (error) {
           next(error);
@@ -31,8 +31,8 @@ module.exports = function (express, bodyParser) {
     .route('/:id')
     .get(function (request, response, next) {
       servico.obterPorId(request.params.id)
-        .then(function (usuario) {
-          response.status(200).json(usuario);
+        .then(function (empresa) {
+          response.status(200).json(empresa);
         })
         .catch(function (error) {
           next(error);
@@ -40,9 +40,9 @@ module.exports = function (express, bodyParser) {
     })
     .delete(function (request, response, next) {
       servico.obterPorId(request.params.id)
-        .then(function (usuario) {
-          usuario.ativo = false;
-          return servico.gravar(usuario);
+        .then(function (empresa) {
+          empresa.ativo = false;
+          return servico.gravar(empresa);
         })
         .then(function () {
           response.status(204).end();

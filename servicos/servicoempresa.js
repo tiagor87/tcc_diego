@@ -2,21 +2,21 @@
 
 module.exports = function () {
   var Promise = require('bluebird');
-  var Usuario = Promise.promisifyAll(require('../modelos/usuario.js'));
+  var Empresa = Promise.promisifyAll(require('../modelos/empresa.js'));
 
-  var ServicoUsuario = function () {
+  var ServicoEmpresa = function () {
   }
 
-  ServicoUsuario.prototype.gravar = function (usuarioData) {
-    var usuario = new Usuario(usuarioData);
-    return usuario.save();
+  ServicoEmpresa.prototype.gravar = function (empresaData) {
+    var empresa = new Empresa(empresaData);
+    return empresa.save();
   }
 
-  ServicoUsuario.prototype.obterPorId = function (id) {
-    return Usuario.findById(id);
+  ServicoEmpresa.prototype.obterPorId = function (id) {
+    return Empresa.findById(id);
   }
 
-  ServicoUsuario.prototype.obter = function (filtro) {
-    return Usuario.find(filtro);
+  ServicoEmpresa.prototype.obter = function (filtro) {
+    return Empresa.find(filtro);
   }
 }

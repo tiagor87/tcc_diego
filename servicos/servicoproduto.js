@@ -2,14 +2,14 @@
 
 module.exports = function () {
   var Promise = require('bluebird');
-  var Usuario = Promise.promisifyAll(require('../modelos/usuario.js'));
+  var Usuario = Promise.promisifyAll(require('../modelos/produto.js'));
 
   var ServicoUsuario = function () {
   }
 
-  ServicoUsuario.prototype.gravar = function (usuarioData) {
-    var usuario = new Usuario(usuarioData);
-    return usuario.save();
+  ServicoUsuario.prototype.gravar = function (produtoData) {
+    var produto = new Usuario(produtoData);
+    return produto.save();
   }
 
   ServicoUsuario.prototype.obterPorId = function (id) {
