@@ -1,0 +1,27 @@
+{
+  "name": "tcc_diego",
+  "version": "1.0.0",
+  "description": "TCC do Diego",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiagor87/tcc_diego.git"
+  },
+  "author": "Diego Ramos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tiagor87/tcc_diego/issues"
+  },
+  "homepage": "https://github.com/tiagor87/tcc_diego#readme",
+  "dependencies": {
+    "bluebird": "^2.9.34",
+    "body-parser": "^1.13.3",
+    "cookie-parser": "^1.3.5",
+    "express": "^4.13.3",
+    "mongoose": "^4.1.3"
+  }
+}
